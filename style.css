@@ -718,7 +718,7 @@ a.btn-solid[href] {
 
 .services-block .animation-container.animated #circle-text1 {
   color: #262626;
-  left: 50px;
+  left: calc(50% - 220px); /* Consolidated label position */
 }
 
 @media (max-width: 1024px) {
@@ -729,7 +729,7 @@ a.btn-solid[href] {
 
 .services-block .animation-container.animated #circle-text2 {
   color: #262626;
-  right: 50px;
+  right: calc(50% - 220px); /* Consolidated label position */
 }
 
 @media (max-width: 1024px) {
@@ -769,22 +769,22 @@ a.btn-solid[href] {
 }
 
 .services-block #circle-text1 {
-  left: 38%;
+  left: calc(50% - 220px);
 }
 
 @media (max-width: 1600px) {
   .services-block #circle-text1 {
-    left: 38%;
+    left: calc(50% - 220px);
   }
 }
 
 .services-block #circle-text2 {
-  right: 38%;
+  right: calc(50% - 220px);
 }
 
 @media (max-width: 1600px) {
   .services-block #circle-text2 {
-    right: 38%;
+    right: calc(50% - 220px);
   }
 }
 
@@ -814,16 +814,19 @@ a.btn-solid[href] {
   display: flex;
   position: relative;
   top: 7px;
+  justify-content: center !important; /* Always center the group */
+  gap: 20px !important; /* Consolidated category gap */
 }
 
 .services-block .brand-col {
   grid-template-rows: auto;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px 20px;
-  width: 280px; /* Precise width for 2-col + gap */
+  grid-template-columns: repeat(2, auto) !important; /* No stretching */
+  gap: 40px 20px !important;
+  width: 280px !important;
   display: grid;
   position: relative;
-  left: 20px;
+  left: 0 !important; /* Reset offset for perfect centering */
+  justify-content: center !important;
 }
 
 /*@media (max-width: 1024px) {
@@ -892,11 +895,12 @@ a.btn-solid[href] {
 
 .services-block .mastery-col {
   grid-template-rows: auto;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px 20px;
-  width: 480px; /* Tight 2-col layout */
+  grid-template-columns: repeat(2, auto) !important; /* No stretching */
+  gap: 40px 20px !important;
+  width: 480px !important;
   display: grid;
-  justify-items: center; /* Center buttons within cells */
+  justify-content: center !important;
+  justify-items: center !important;
 }
 
 /*@media (max-width: 1024px) {
@@ -927,32 +931,26 @@ a.btn-solid[href] {
 
 .services-block .mastery-col .grid-item:nth-child(2) {
   grid-area: 2/1; /* Branding (left) */
-  justify-self: end;
 }
 
 .services-block .mastery-col .grid-item:nth-child(3) {
   grid-area: 2/2; /* App Design (right) */
-  justify-self: start;
 }
 
 .services-block .mastery-col .grid-item:nth-child(4) {
   grid-area: 3/1;
-  justify-self: end;
 }
 
 .services-block .mastery-col .grid-item:nth-child(5) {
   grid-area: 3/2;
-  justify-self: start;
 }
 
 .services-block .mastery-col .grid-item:nth-child(6) {
   grid-area: 4/1;
-  justify-self: end;
 }
 
 .services-block .mastery-col .grid-item:nth-child(7) {
   grid-area: 4/2;
-  justify-self: start;
 }
 
 /*@media (max-width: 1024px) {
@@ -1023,12 +1021,13 @@ a.btn-solid[href] {
 
 .services-block .product-col {
   grid-template-rows: auto;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 50px 50px;
-  width: 280px;
+  grid-template-columns: repeat(2, auto) !important; /* No stretching */
+  gap: 40px 20px !important;
+  width: 280px !important;
   display: grid;
   position: relative;
-  left: -20px;
+  left: 0 !important; /* Reset offset */
+  justify-content: center !important;
 }
 
 /*@media (max-width: 1024px) {
