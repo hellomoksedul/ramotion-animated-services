@@ -12,24 +12,11 @@
       rel="stylesheet"
     />
     <style>
-      /* --- Start of Embedded CSS from style.css --- */
-
-      /* NOTE: The original CSS file used a font called 'Graphik Web' which was loaded from local files.
-         To make this single file work anywhere, I've replaced it with the 'Inter' font from Google Fonts.
-         */
       body,
       button,
       input,
       textarea {
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          Segoe UI,
-          Roboto,
-          Helvetica,
-          Arial,
-          sans-serif;
+        font-family: "Inter", sans-serif !important;
       }
 
       .fonts-loading body:before {
@@ -1298,25 +1285,31 @@
         width: 18px;
         height: 18px;
         line-height: 1;
-        transition: transform 0.5s ease-out;
+        transition: all 0.4s ease-out;
         display: flex !important;
         position: relative !important;
         flex-shrink: 0 !important;
+        margin-left: 0;
+        opacity: 1;
+      }
+
+      /* Hide and slide out left icon on hover */
+      .services-block .service.provide:hover .title .icon,
+      .services-block .service.provide:active .title .icon {
+        opacity: 0 !important;
+        margin-left: -18px !important; /* Only collapse icon width */
+        transform: translateX(-12px) !important; /* Visually slide further */
       }
 
       /* --- END: FIX for icon alignment --- */
 
-      .services-block .service .title a:hover {
+      .services-block .service.provide:hover .title a {
         box-shadow: none;
         text-decoration: none;
-        padding-right: 42px; /* Expand on hover to fit arrow + gap */
+        padding-right: 32px; /* Ensure exact width constraint without expanding (14px + 18px collapse) */
       }
 
-      /* Offset the width increase in the layout so grid alignment doesn't shift the origin point */
-      .services-block .service:hover .title {
-        margin-right: -28px !important;
-      }
-
+      /* Allow text to slide inside button without moving button */
       .services-block .service .title .icon img {
         max-width: 100%;
         display: inline-block;
@@ -1336,7 +1329,7 @@
         transition: all 0.4s ease-out !important;
         position: absolute;
         top: 50% !important;
-        right: 12px !important;
+        right: 16px !important; /* Moved inwards slightly */
         transform: translateY(-50%) translateX(30px) !important; /* Start way out */
         opacity: 0 !important;
       }
@@ -1650,15 +1643,17 @@
           opacity: 1 !important;
         }
 
-        /* Expand padding on mobile hover/active to match desktop */
-        .services-block .service:hover .title a,
-        .services-block .service:active .title a {
-          padding-right: 36px !important;
+        /* Hide icon and slide out left on mobile hover */
+        .services-block .service.provide:hover .title .icon,
+        .services-block .service.provide:active .title .icon {
+          margin-left: -14px !important; /* Collapse only the icon width */
+          transform: translateX(-10px) !important;
         }
 
-        .services-block .service:hover .title,
-        .services-block .service:active .title {
-          margin-right: -22px !important;
+        /* Expand right padding exact amount of left margin lost to keep button exact same width */
+        .services-block .service.provide:hover .title a,
+        .services-block .service.provide:active .title a {
+          padding-right: 28px !important; /* 14px base + 14px collapse */
         }
       }
       /* --- END: Mobile responsiveness fixes --- */
