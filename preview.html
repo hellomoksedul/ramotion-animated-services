@@ -1315,14 +1315,26 @@
         display: inline-block;
       }
 
+      .services-block .service .title strong,
+      .services-block .service .title p,
+      .services-block .service .title span {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
       .services-block .service .title strong {
         text-transform: lowercase;
         white-space: nowrap;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 500;
+        line-height: normal !important;
         transition: all 0.8s ease-out;
-        display: inline-block !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
         position: relative !important;
+        height: 100%;
+        margin-top: -1px !important; /* Visual optical adjustment */
       }
 
       .services-block .service .title .arrow {
