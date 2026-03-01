@@ -1268,6 +1268,7 @@ a.btn-solid[href] {
     width 0.3s cubic-bezier(0.89, 0.34, 0.2, 0.83),
     transform 0.8s cubic-bezier(0.89, 0.34, 0.2, 0.83),
     left 0.3s cubic-bezier(0.89, 0.34, 0.2, 0.83),
+    margin-right 0.4s ease-out,
     opacity 0.4s ease-in;
   position: relative;
   left: 100px;
@@ -1309,6 +1310,11 @@ a.btn-solid[href] {
   box-shadow: none;
   text-decoration: none;
   padding-right: 42px; /* Expand on hover to fit arrow + gap */
+}
+
+/* Offset the width increase in the layout so grid alignment doesn't shift the origin point */
+.services-block .service:hover .title {
+  margin-right: -28px !important;
 }
 
 .services-block .service .title .icon img {
@@ -1648,6 +1654,11 @@ a.btn-solid[href] {
   .services-block .service:hover .title a,
   .services-block .service:active .title a {
     padding-right: 36px !important;
+  }
+  
+  .services-block .service:hover .title,
+  .services-block .service:active .title {
+    margin-right: -22px !important;
   }
 }
 /* --- END: Mobile responsiveness fixes --- */
